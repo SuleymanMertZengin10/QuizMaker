@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <title>Deneme</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>KlasikSorular</h1>
+
+      
+
+        <table class="table">
+            <thead>
+                <tr>
+           
+                    <th>Soru</th>
+                    <th>puan</th>
+                    <th>ZorlukDerecesi</th> 
+                    <th>Doğru Cevap</th>
+                    <th>Kategori</th>
+                    <th>Işlemler</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="sorular:${Klasiksoru}">
+                    <td th:text="${sorular.soru}"></td>
+                    <td th:text="${sorular.puan}"></td>
+                    <td th:text="${sorular.zorlukDerecesi}"></td>   
+                    <td th:text="${sorular.dogruCevap}"></td>   
+                    <td th:text="${sorular.soruKategorisi}"></td>   
+                    <td>
+                    <a href="#">Güncelle</a>
+                    <a href="#" >Sil</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+        <div class="container">
+
+        <h1>Doğru Yanlis Sorular</h1>
+
+      
+
+        <table class="table">
+            <thead>
+                <tr>
+           
+                    <th>Soru</th>
+                    <th>puan</th>
+                    <th>ZorlukDerecesi</th> 
+                    <th>Doğru Cevap</th>
+                    <th>Kategori</th>
+                     <th>Işlemler</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="sorular:${DogruYanlisSoru}">
+                    <td th:text="${sorular.soru}"></td>
+                    <td th:text="${sorular.soruPuani}"></td>
+                    <td th:text="${sorular.zorlukDerecesi}"></td>   
+                    <td th:text="${sorular.dogruOrYanlis}"></td>   
+                    <td th:text="${sorular.kategori}"></td>  
+                       <td>
+                    <a href="#">Güncelle</a>
+                    <a href="#" >Sil</a>
+                    </td>
+                     
+                </tr>
+            </tbody>
+        </table>
+    </div>
+          <div class="container">
+
+        <h1>Çoktan Seçmeli Sorular</h1>
+
+      
+
+        <table class="table">
+            <thead>
+                <tr>
+           
+                    <th>Soru</th>
+                    <th>puan</th>
+                    <th>ZorlukDerecesi</th> 
+                    <th>Doğru Cevap</th>
+                    <th>Kategori</th>
+                     <th>Işlemler</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="sorular:${CoktanSecmeliSoru}">
+                    <td th:text="${sorular.soru}"></td>
+                    <td th:text="${sorular.soruPuani}"></td>
+                    <td th:text="${sorular.zorlukDerecesi}"></td>   
+                    <td th:text="${sorular.dogruCevap}"></td>   
+                    <td th:text="${sorular.kategori}"></td> 
+                         <td>
+                    <a href="#">Güncelle</a>
+                    <a href="@{/coktanSecmeliSoruSil/__${sorular.id}__}" >Sil</a>
+                    </td>  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

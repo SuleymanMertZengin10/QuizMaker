@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <title>Deneme</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>KlasikSorular</h1>
+
+      
+
+        <table class="table">
+            <thead>
+                <tr>
+           
+                    <th>Kategori Adi</th>
+                    <th>Tüm sorular</th>
+               
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="kategori:${kategoriler}">
+                    <td th:text="${kategori.dersAdi}"></td>
+                  <td><a th:href="@{/sorularKategori/__${kategori.dersAdi}__}">Listele</a></td>  
+        
+                </tr>
+            </tbody>
+        </table>
+    </div>
+     
+  
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    	<link rel="stylesheet" type="text/css" media="all" href="../../css/SoruEkle.css" th:href="@{/css/SoruEkle.css}">
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-mid-4">
+           
+            <form action="#" th:object="${coktan}" th:action="@{/coktanSecmeliSoruEkle}" method="post"class="form">
+            <div class="get-in-touch">
+                <h3 class="text-center">
+               Çoktan Seçmeli Soru</h3>
+                    <div class="form-group">
+                    <textarea class="form-control" rows="3" placeholder="Soru" required id="soru" th:field="*{soru}"  ></textarea>
+                </div>
+                 <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="A şıkkını giriniz" th:field="*{cevapA}" required/>
+                </div>
+                 <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="B şıkkını giriniz" th:field="*{cevapB}" required/>
+                </div>
+                 <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="C şıkkını  giriniz" th:field="*{cevapC}" required/>
+                </div>
+                 <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="D şıkkını Giriniz" th:field="*{cevapD}" required/>
+                </div>
+                      	<div class="col-md-15">
+		    		
+			     <select class="form-control" th:field="*{dogruCevap}">
+			             <option value="">Doğru Cevabı Giriniz</option>
+			            <option value="kolay">a</option>
+			             <option value="a">b</option>
+			             <option value="b">c</option>
+			             <option value="c">d</option>
+						
+					</select>
+		    	</div> 
+                    
+                	<div class="col-md-15">
+		    		
+			     <select class="form-control" th:field="*{zorlukDerecesi}">
+			             <option value="">Zorluk Derecesi</option>
+			            <option value="kolay">kolay</option>
+			             <option value="orta">orta</option>
+			             <option value="zor">zor</option>
+						
+					</select>
+		    	</div>
+		    	 <div class="form-group">
+		    
+		    	<div class="col-md-15">
+		    		
+			      <select class="form-control" th:field="*{kategori}">
+			            <option value="">Kategori Seçiniz</option>
+						<option th:each="k:${kategoriler}" th:value="${k.dersAdi}" th:text="${k.dersAdi}"></option> 
+					</select>
+		    	</div>
+		    	</div>
+                   <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Sorunun Puanını Giriniz" th:field="*{soruPuani}"   required />
+                </div>
+       	 <a  th:href="@{/kategoriEkle}">Yeni Kategori</a>    
+                
+             <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
